@@ -48,7 +48,7 @@ export const ColorModeToggle: React.FC<{
 							size={18}
 							className={
 								active
-									? "text-typography-50"
+									? "text-white dark:text-typography-100"
 									: "text-typography-600 dark:text-typography-300"
 							}
 							strokeWidth={active ? 2.2 : 1.8}

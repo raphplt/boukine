@@ -1,10 +1,16 @@
+import { ColorModeToggle } from "@/components/theme/color-mode-toggle";
+import { ThemedText } from "@/components/themed-text";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 const Profile = () => {
 	return (
 		<View>
-			<Text>Profile </Text>
+			<ThemedText type="title" className="py-2">
+				Profile{" "}
+			</ThemedText>
+
+			<ColorModeToggle orientation="horizontal" />
 		</View>
 	);
 };

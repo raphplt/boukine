@@ -1,6 +1,6 @@
 import * as Lucide from "lucide-react-native";
 import React from "react";
-import { ViewStyle } from "react-native";
+import { StyleProp, Text, TextStyle, ViewStyle } from "react-native";
 
 const registry = {
 	sun: Lucide.Sun,
@@ -20,7 +20,7 @@ export interface IconProps {
 	color?: string;
 	strokeWidth?: number;
 	className?: string;
-	style?: ViewStyle;
+	style?: StyleProp<ViewStyle | TextStyle>;
 }
 
 export const Icon: React.FC<IconProps> = ({
@@ -36,13 +36,30 @@ export const Icon: React.FC<IconProps> = ({
 		if (__DEV__) console.warn(`[Icon] Unknown icon: ${name}`);
 		return null;
 	}
+
+	// Si className est fourni sans color prop, on laisse NativeWind appliquer la couleur via Text.
+	// Lucide ne lit pas toujours className côté RN, donc on wrap pour récupérer la couleur calculée.
+	if (className && !color) {
+		// On applique seulement le style au wrapper si c'est du TextStyle, sinon on ignore.
+		return (
+			<Text className={className}>
+				<Cmp
+					size={size}
+					// @ts-ignore héritage via currentColor
+					color={undefined}
+					strokeWidth={strokeWidth}
+				/>
+			</Text>
+		);
+	}
+
 	return (
 		<Cmp
 			size={size}
 			color={color}
 			strokeWidth={strokeWidth}
+			// @ts-ignore className future support
 			className={className}
-			style={style}
 		/>
 	);
 };
