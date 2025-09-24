@@ -5,8 +5,6 @@ import { HelloWave } from "@/components/hello-wave";
 import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { Box } from "@/components/ui/box";
-import { Spinner } from "@/components/ui/spinner";
 
 export default function HomeScreen() {
 	return (
@@ -25,8 +23,6 @@ export default function HomeScreen() {
 			</ThemedView>
 			<ThemedText type="title">Noter un livre</ThemedText>
 
-			<Box />
-			<Spinner size="large" />
 		</ParallaxScrollView>
 	);
 }
