@@ -1,6 +1,12 @@
 import QrCodeScanner from "@/components/common/QrCodeScanner";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
+import {
+	Slider,
+	SliderFilledTrack,
+	SliderThumb,
+	SliderTrack,
+} from "@/components/ui/slider";
 import { StyleSheet } from "react-native";
 
 export default function HomeScreen() {
@@ -11,6 +17,16 @@ export default function HomeScreen() {
 			</ThemedView>
 			<ThemedText type="title">Noter un livre</ThemedText>
 			<QrCodeScanner />
+			<ThemedView className="w-1/3 mx-auto mt-10 flex flex-col items-center gap-4">
+				<ThemedText type="subtitle"> test</ThemedText>
+
+				<Slider>
+					<SliderTrack>
+						<SliderFilledTrack />
+					</SliderTrack>
+					<SliderThumb />
+				</Slider>
+			</ThemedView>
 		</>
 	);
 }
