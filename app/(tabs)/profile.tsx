@@ -1,3 +1,4 @@
+import LanguageSwitch from "@/components/common/LanguageSwitch";
 import { ColorModeToggle } from "@/components/theme/color-mode-toggle";
 import { ThemedText } from "@/components/themed-text";
 import React from "react";
@@ -7,10 +8,11 @@ const Profile = () => {
 	return (
 		<View>
 			<ThemedText type="title" className="py-2">
-				Profile{" "}
+				Profile
 			</ThemedText>
 
 			<ColorModeToggle orientation="horizontal" />
+			<LanguageSwitch />
 		</View>
 	);
 };

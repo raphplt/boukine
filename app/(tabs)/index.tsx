@@ -7,15 +7,19 @@ import {
 	SliderThumb,
 	SliderTrack,
 } from "@/components/ui/slider";
+import { useTranslation } from "react-i18next";
 import { StyleSheet } from "react-native";
 
 export default function HomeScreen() {
+	const { t } = useTranslation("common");
+
 	return (
 		<>
 			<ThemedView style={styles.titleContainer}>
 				<ThemedText type="title">Boukine</ThemedText>
 			</ThemedView>
 			<ThemedText type="title">Noter un livre</ThemedText>
+			<ThemedText type="title">{t("title")}</ThemedText>
 			<QrCodeScanner />
 			<ThemedView className="w-1/3 mx-auto mt-10 flex flex-col items-center gap-4">
 				<ThemedText type="subtitle"> test</ThemedText>

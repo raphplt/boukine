@@ -6,7 +6,10 @@ import {
 } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 import "react-native-reanimated";
+import "./i18n";
+import { detectAndSetLanguage } from "./i18n";
 
 import {
 	ColorModeProvider,
@@ -20,6 +23,11 @@ export const unstable_settings = {
 
 function RootLayoutInner() {
 	const { mode, resolvedMode } = useColorMode();
+
+	useEffect(() => {
+		detectAndSetLanguage();
+	}, []);
+
 	return (
 		<GluestackUIProvider mode={mode}>
 			<ThemeProvider value={resolvedMode === "dark" ? DarkTheme : DefaultTheme}>
