@@ -37,18 +37,10 @@ export const Icon: React.FC<IconProps> = ({
 		return null;
 	}
 
-	// Si className est fourni sans color prop, on laisse NativeWind appliquer la couleur via Text.
-	// Lucide ne lit pas toujours className côté RN, donc on wrap pour récupérer la couleur calculée.
 	if (className && !color) {
-		// On applique seulement le style au wrapper si c'est du TextStyle, sinon on ignore.
 		return (
 			<Text className={className}>
-				<Cmp
-					size={size}
-					// @ts-ignore héritage via currentColor
-					color={undefined}
-					strokeWidth={strokeWidth}
-				/>
+				<Cmp size={size} color={undefined} strokeWidth={strokeWidth} />
 			</Text>
 		);
 	}
@@ -58,7 +50,6 @@ export const Icon: React.FC<IconProps> = ({
 			size={size}
 			color={color}
 			strokeWidth={strokeWidth}
-			// @ts-ignore className future support
 			className={className}
 		/>
 	);
